@@ -1,0 +1,34 @@
+{
+  "name": "cmc-angular2",
+  "version": "1.0.0",
+  "description": "music blog",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp server"
+  },
+  "author": "Saleh Kaddoura",
+  "license": "ISC",
+  "dependencies": {
+    "angular2": "2.0.0-alpha.45",
+    "es6-shim": "^0.33.13",
+    "express": "^4.13.3",
+    "morgan": "^1.6.1",
+    "systemjs": "0.19.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-csslint": "^0.2.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-nodemon": "^2.0.4",
+    "gulp-plumber": "^1.0.1",
+    "gulp-typescript": "^2.9.2",
+    "gulp-uglify": "^1.5.1",
+    "watchify": "^3.6.1"
+  }
+}
