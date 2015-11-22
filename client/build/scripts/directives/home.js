@@ -13,13 +13,13 @@ var angular2_1 = require('angular2/angular2');
 var router_1 = require('angular2/router');
 var Home = (function () {
     function Home() {
-        this.name = "CuttyMusicCollective";
+        this.name = "CuttyMusicCollectiveE";
     }
     Home = __decorate([
         angular2_1.Component({
             selector: 'home',
             directives: [router_1.ROUTER_DIRECTIVES],
-            templateUrl: '../templates/home.html'
+            templateUrl: '/templates/home.html'
         }), 
         __metadata('design:paramtypes', [])
     ], Home);

@@ -4,13 +4,13 @@ import { ROUTER_DIRECTIVES } from 'angular2/router';
 @Component({
     selector: 'home',
     directives: [ROUTER_DIRECTIVES],
-    templateUrl: '../templates/home.html'
+    templateUrl: '/templates/home.html'
 })
 
 export class Home {
     name: string;
 
     constructor() {
-        this.name = "CuttyMusicCollective"
+        this.name = "CuttyMusicCollectiveE"
     }
 }

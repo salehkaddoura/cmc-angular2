@@ -3,7 +3,7 @@
 import { Component, View, bootstrap, provide } from 'angular2/angular2';
 import { ROUTER_DIRECTIVES, RouteConfig, Location, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy, Route, AsyncRoute, Router } from 'angular2/router';
 
-import { Home } from '';
+import { Home } from '/build/scripts/directives/home.js';
 
 @Component({
     selector: 'app'
@@ -14,7 +14,7 @@ import { Home } from '';
 ])
 
 @View({
-    templateUrl: "./templates/parent.html",
+    templateUrl: './templates/parent.html',
     directives: [Home, ROUTER_DIRECTIVES]
 })
 
@@ -22,10 +22,12 @@ class App {
 
     router: Router;
     location: Location;
+    name: string;
 
     constructor(router: Router, location: Location) {
         this.router = router;
         this.location = location;
+        this.name = 'SALEH KADDOURA';
     }
 }
 

@@ -20,7 +20,7 @@ gulp.task('scripts', function() {
 
 // Lint CSS
 gulp.task('cssLint:home', function() {
-    var path = '/styles/**.css';
+    var path = 'styles/**.css';
     gulp.src(path)
         .pipe(csslint())
         .pipe(csslint.reporter());
@@ -28,8 +28,8 @@ gulp.task('cssLint:home', function() {
 
 // Concatinate Home app css
 gulp.task('styles:home', function() {
-    var path = "/styles/**.css";
-    var cssDest = "/build/styles/";
+    var path = "styles/**.css";
+    var cssDest = "build/styles";
     var cssFileName = "home.min.css";
 
     gulp.src(path)
@@ -43,7 +43,7 @@ gulp.task('styles:home', function() {
 
 // Start the server
 gulp.task('start', function() {
-  var src = 'server.js';
+  var src = '../server.js';
   nodemon({
     script: src,
     ext: "js html"
@@ -55,14 +55,15 @@ gulp.task('start', function() {
 
 // Watch server and client files change
 gulp.task('watch', function() {
-  livereload.listen([port = 37528]);
+  livereload.listen();
 
   // server
-  gulp.watch('server.js', ['scripts']);
+  gulp.watch('../server.js', ['scripts']);
 
   // client
   gulp.watch("styles/*.css", ['cssLint:home', 'styles:home']);
   gulp.watch("scripts/**.ts", ['scripts']);
+  gulp.watch("scripts/directives/**.ts", ['scripts']);
   gulp.watch("templates/**", ['styles:home']);
 
 });

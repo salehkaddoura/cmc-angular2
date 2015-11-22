@@ -12,22 +12,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var angular2_1 = require('angular2/angular2');
 var router_1 = require('angular2/router');
-var _1 = require('');
+var home_js_1 = require('/build/scripts/directives/home.js');
 var App = (function () {
     function App(router, location) {
         this.router = router;
         this.location = location;
+        this.name = 'SALEH KADDOURA';
     }
     App = __decorate([
         angular2_1.Component({
             selector: 'app'
         }),
         router_1.RouteConfig([
-            new router_1.Route({ path: '/', component: _1.Home, as: 'Home' })
+            new router_1.Route({ path: '/', component: home_js_1.Home, as: 'Home' })
         ]),
         angular2_1.View({
-            templateUrl: "./templates/parent.html",
-            directives: [_1.Home, router_1.ROUTER_DIRECTIVES]
+            templateUrl: './templates/parent.html',
+            directives: [home_js_1.Home, router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [router_1.Router, router_1.Location])
     ], App);
