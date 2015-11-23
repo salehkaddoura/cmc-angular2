@@ -11,27 +11,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var angular2_1 = require('angular2/angular2');
 var router_1 = require('angular2/router');
-var http_1 = require('angular2/http');
-var Home = (function () {
-    function Home(http) {
-        this.name = "This is the home page";
-        this.token = localStorage.getItem('fbToken');
-        this.http = http;
-        this.getGroupPosts();
+var Landing = (function () {
+    function Landing() {
+        console.log('hello this is landing controller');
     }
-    Home.prototype.getGroupPosts = function () {
-        var _this = this;
-        this.result = {};
-        this.http.get('https://graph.facebook.com/v2.5/227262903994931/feed?access_token=' + this.token).map(function (res) { return res.json(); }).subscribe(function (data) { return _this.result = data; }, function (error) { return _this.error = error; }, function () { return console.log('posts done', _this.result); });
-    };
-    Home = __decorate([
+    Landing = __decorate([
         angular2_1.Component({
-            selector: 'home',
+            selector: 'landing',
             directives: [router_1.ROUTER_DIRECTIVES, angular2_1.CORE_DIRECTIVES],
-            templateUrl: '/templates/home.html'
+            templateUrl: '/templates/landing.html'
         }), 
-        __metadata('design:paramtypes', [http_1.Http])
-    ], Home);
-    return Home;
+        __metadata('design:paramtypes', [])
+    ], Landing);
+    return Landing;
 })();
-exports.Home = Home;
+exports.Landing = Landing;

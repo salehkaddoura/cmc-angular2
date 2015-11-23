@@ -13,7 +13,8 @@
     },
     "files": [
         "scripts/app.ts",
-        "scripts/directives/home.ts"
+        "scripts/directives/home.ts",
+        "scripts/directives/landing.ts"
     ],
     "compileOnSave": true,
     "exclude": []

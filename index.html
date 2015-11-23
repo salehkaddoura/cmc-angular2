@@ -3,13 +3,71 @@
 <head>
     <title>CuttyMusicCollective</title>
     <link rel="stylesheet" href="/build/styles/home.min.css">
+    <link rel="stylesheet" href="/build/styles/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
     <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body>
-    <app>Loading...</app>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '1630002463931230',
+              xfbml      : true,
+              cookie     : true,
+              version    : 'v2.5'
+            });
+        };
 
+        function statusChangeCallback(response) {
+            console.log('statusChangeCallback');
+            console.log(response);
+            if (response.status === 'connected') {
+                localStorage.setItem('fbToken', response.authResponse.accessToken);
+                window.location = 'http://localhost:8080/#/home';
+                testAPI();
+            } else if (response.status === 'not_authorized') {
+                console.log('User is logged into FB but not the app');
+                fbLogin();
+            } else {
+                console.log('user is not logged into facebook');
+                fbLogin();
+            }
+        }
+
+        function checkFbStatus() {
+            FB.getLoginStatus(function(response) {
+                console.log(response);
+                statusChangeCallback(response);
+            });
+        }
+
+        function fbLogin() {
+            FB.login(function(response) {
+                console.log('HELLO');
+                console.log(response);
+            }, {scope: 'public_profile, email'});
+        }
+      
+        function testAPI() {
+            console.log('Welcome!  Fetching your information.... ');
+            FB.api('/me', function(response) {
+                console.log(response);
+                console.log('Successful login for: ' + response.name);
+            });
+        }
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div id="fb-root"></div>
+    <app>Loading...</app>
     <script src="https://code.angularjs.org/tools/system.js"></script>
     <script src="https://code.angularjs.org/2.0.0-alpha.45/angular2.js"></script>
     <script src="https://code.angularjs.org/2.0.0-alpha.45/http.dev.js"></script>
